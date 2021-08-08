@@ -1,0 +1,210 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+*:focus {
+  outline: 0;
+}
+
+body {
+  width: 100vw;
+  min-height: 100vh;
+  font-family: "Lato", sans-serif;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 10px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid rgb(218, 218, 218);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  z-index: 10;
+}
+
+header::before {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(5px);
+  z-index: -1;
+}
+
+header > .controls {
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+header > .controls > button {
+  width: 200px;
+  max-width: 100%;
+  cursor: pointer;
+  background: linear-gradient(to bottom, rgb(255, 57, 57), rgb(63, 0, 0));
+  color: white;
+  padding: 15px 20px;
+  border: 0;
+  border-radius: 5px;
+  margin: 5px;
+}
+
+header > .controls > button:active {
+  transform: scale(0.95);
+}
+
+header > p:nth-of-type(2) {
+  padding: 10px;
+}
+
+header > p > span {
+  border: 2px solid black;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+header > p > span:nth-of-type(1) {
+  color: rgb(0, 172, 154);
+  border-color: rgb(0, 172, 154);
+}
+header > p > span:nth-of-type(2) {
+  color: rgb(152, 0, 240);
+  border-color: rgb(152, 0, 240);
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  grid-gap: 10px;
+  padding: 10px;
+}
+
+.user-box {
+  background-color: rgb(243, 243, 243);
+  width: 300px;
+  max-width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  animation: popup 500ms ease-in-out forwards;
+}
+
+@keyframes popup {
+  0% {
+    transform: scale(0.9);
+  }
+  70% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.user-box p {
+  margin-bottom: 2px;
+}
+
+.user-box small {
+  color: white;
+  padding: 2px 5px;
+  border-radius: 5px;
+}
+
+.user-box.default small {
+  background: linear-gradient(to bottom, rgb(99, 99, 99), black);
+}
+.user-box.posted small {
+  background: linear-gradient(to bottom, dodgerblue, rgb(0, 31, 61));
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.3);
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  z-index: 20;
+}
+
+.modal.show {
+  display: flex;
+}
+
+.modal form {
+  position: relative;
+  width: 300px;
+  max-width: 100%;
+  background-color: white;
+  padding: 10px 5px;
+  padding-top: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+}
+
+.modal form input[type="text"] {
+  width: 100%;
+  margin-bottom: 5px;
+  padding: 5px;
+  border: 1px solid gray;
+  border-radius: 3px;
+}
+
+.modal form input[type="submit"] {
+  cursor: pointer;
+  background: linear-gradient(to bottom, rgb(255, 57, 57), rgb(63, 0, 0));
+  color: white;
+  padding: 15px 20px;
+  border: 0;
+  border-radius: 5px;
+}
+
+.modal form input[type="submit"]:active {
+  transform: scale(0.95);
+}
+
+.modal form button {
+  cursor: pointer;
+  position: absolute;
+  top: 1px;
+  right: 1px;
+  width: 25px;
+  height: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  background-color: black;
+  color: white;
+  border-radius: 5px;
+}
+
+.modal form button:active {
+  transform: scale(0.95);
+}
